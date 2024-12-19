@@ -1,13 +1,6 @@
 def solution(myString, pat):
-    count = 0
-    start = 0
-    while True:
-        index = myString.find(pat, start)
-        
-        if index == -1:
-            break
-        
-        count += 1
-        start = index + 1  
-
-    return count
+    answer = 0
+    for i, x in enumerate(myString) :
+        if myString[i:].startswith(pat) :
+            answer += 1
+    return answer
