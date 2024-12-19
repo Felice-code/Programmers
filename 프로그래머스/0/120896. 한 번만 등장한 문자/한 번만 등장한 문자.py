@@ -1,10 +1,10 @@
 def solution(s):
-    answer = ''
-    answer_dic = {char:0 for char in set(s)}
-    for char in s:
-        answer_dic[char] += 1
-    for char, val in answer_dic.items():
-        if val == min(answer_dic.values()):
-            answer+=char
+    # 각 문자의 빈도 계산
+    from collections import Counter
+    counts = Counter(s)
 
-    return ''.join(sorted(answer))
+    # 최소 빈도를 가진 문자들만 정렬 후 반환
+    min_count = min(counts.values())
+    result = sorted([char for char, count in counts.items() if count == min_count])
+    
+    return ''.join(result)
